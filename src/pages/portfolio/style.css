@@ -1,0 +1,220 @@
+.po_items_ho {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.po_items_inner_ho{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+    column-gap: 5rem;
+    width: 90%;
+}
+
+.po_item {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: 0.5rem auto;
+    position: relative;
+    background: var(--secondary-color);
+    padding: 6px;
+    border: 1px solid var(--secondary-color);
+    transition: 0.3s ease;
+    font-size: 0;
+    min-height: 300px;
+}
+
+.po_item img {
+    max-width: 100%;
+}
+
+.po_item .content {
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--overlay-color);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+    border: 1px solid black;
+}
+
+.po_item .content {
+    opacity: 0;
+    transition-delay: 1s;
+    transition: 0.3s ease;
+    font-size: 20px;
+}
+
+.po_item:hover {
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.25);
+}
+
+.po_item:hover .content {
+    height: calc(100% - 30px);
+    width: calc(100% - 30px);
+    opacity: 1;
+}
+
+.po_item:hover .content {
+    opacity: 1;
+    color: var(--secondary-color);
+}
+
+.po_item .content a {
+    background: var(--bg-color);
+    border: solid 1px var(--text-color);
+    padding: 4px 8px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.po_item .content a:hover {
+    text-decoration: none;
+}
+
+
+
+
+
+
+/* App.css */
+
+.app {
+    padding: 20px;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.gallery-item {
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-inner-item {
+    width: 100%;
+    aspect-ratio: 4 / 7; /* Ensures consistent height-width ratio */
+    overflow: hidden; /* Ensures no overflow */
+    position: relative;
+}
+
+.gallery-item img, .gallery-inner-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-inner-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures full image visibility without distortion */
+    background-color: #fff; /* Adds a neutral background for transparency */
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox {
+    position: fixed;
+    top: 60px;
+    /* Start just below the header */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    /* Subtract the height of the header */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Align content below the header */
+    z-index: 1000;
+    overflow: auto;
+    /* Enable scrolling for overflow */
+}
+
+.lightbox-content {
+    max-width: 90%;
+    /* Full width */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin: 20px 0;
+    /* Add some spacing */
+    border-radius: 8px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+} */
+
+.close {
+    border-radius: 50%;
+    position: fixed;
+    top: 60px;
+    right: 40px;
+    font-size: 20px;
+    color: black;
+    cursor: pointer;
+    z-index: 1001;
+    /* transition: transform 0.3s ease; */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    font-weight: bold;
+}
+
+/* .close:hover {
+    transform: scale(1.2);
+} */
+
+.lightbox-scroll-container {
+    max-height: 100%;
+    /* Restrict height to viewport */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
